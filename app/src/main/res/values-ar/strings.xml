@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">وين ناكل ؟</string>
+    <string name="whereEat">وين ناكل</string>
+    <string name="suggest">اقترح</string>
+    <string name="error_occurred">The server is down, please try again later</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="time_out_message">Looks like the server is taking to long to respond, this can be caused by either  poor connectivity or an error with our servers. Please try again in a while</string>
+    <string name="about_us">عن التطبيق</string>
+    <string name="searchsettings">اعدادات البحث</string>
+</resources>

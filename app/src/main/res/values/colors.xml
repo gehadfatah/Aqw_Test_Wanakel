@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#30373D</color>
+    <color name="colorAccent">#0b9496</color>
+    <color name="black_20">#33000000</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+    <color name="grey">#a2a2a2</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+
+</resources>

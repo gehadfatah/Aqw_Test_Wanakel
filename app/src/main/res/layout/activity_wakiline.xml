@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            android:fitsSystemWindows="true"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextAppearance="@style/TitleBarTextAppearance">
+
+            <ImageView
+                android:id="@+id/historyImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_history_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/logo_header"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_header" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <fragment
+            android:id="@+id/nav_home_w"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation_home_wakilnie"
+          />
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorAccent"
+        android:fitsSystemWindows="true"
+        tools:visibility="gone"
+        app:itemBackground="@drawable/drawer_selected_item"
+        app:itemIconTint="@android:color/white"
+        app:itemTextAppearance="@style/TitleMenuTextAppearance"
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/activity_home_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

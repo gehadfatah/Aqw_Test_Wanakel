@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">وين ناكل ؟</string>
+    <string name="whereEat">Where we Eat</string>
+    <string name="suggest">Suggest</string>
+
+    <string name="error_occurred">The server is down, please try again later</string>
+    <string name="time_out_message">Looks like the server is taking to long to respond, this can be caused by either  poor connectivity or an error with our servers. Please try again in a while</string>
+
+    <string name="no_connection">No Internet Connection</string>
+    <string name="about_us">about</string>
+    <string name="searchsettings">Search Settings</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+</resources>

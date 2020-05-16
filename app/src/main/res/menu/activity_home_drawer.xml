@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/settingsFragment"
+        android:checkable="true"
+        android:icon="@drawable/ic_settings_applications_black_24dp"
+        android:title="@string/searchsettings" />
+
+    <item
+        android:id="@+id/aboutFragment"
+        android:checkable="true"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/about_us" />
+
+
+</menu>
