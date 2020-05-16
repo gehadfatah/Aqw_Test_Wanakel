@@ -2,6 +2,7 @@ package com.example.weanaklie.presentation.main.home
 
 import android.content.ComponentName
 import android.content.Context
+import android.location.Location
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -27,6 +28,7 @@ class HomeWakilneActivity : AppCompatActivity() {
          Navigation.findNavController(this, R.id.nav_home_w)
      }*/
     var suggest:SuggestResponse? = SuggestResponse()
+    var userlocation: Location? = null
 
     private val appBarConfiguration: AppBarConfiguration by lazy {
         AppBarConfiguration(
@@ -45,6 +47,7 @@ class HomeWakilneActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wakiline)
         suggest = intent.getParcelableExtra("suggest") ?: SuggestResponse()
+        userlocation = intent.getParcelableExtra("location")
 
 
         setupNavigation()
@@ -66,7 +69,7 @@ class HomeWakilneActivity : AppCompatActivity() {
         findNavController(R.id.nav_home_w)
             .setGraph(
                 R.navigation.navigation_home_wakilnie,
-                DetailFragmentArgs(suggest).toBundle()
+                DetailFragmentArgs(suggest,userlocation).toBundle()
             )
         /*   val bundle = Bundle()
            bundle.putParcelable("suggestDetail", suggest)

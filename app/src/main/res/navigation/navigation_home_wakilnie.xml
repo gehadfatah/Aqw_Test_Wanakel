@@ -15,6 +15,11 @@
             android:defaultValue="@null"
             app:argType="com.example.weanaklie.model.datamodel.SuggestResponse"
             app:nullable="true" />
+        <argument
+            android:name="location"
+            android:defaultValue="@null"
+            app:argType="android.location.Location"
+            app:nullable="true" />
     </fragment>
 
 

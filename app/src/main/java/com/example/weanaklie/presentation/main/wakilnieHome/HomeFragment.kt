@@ -99,6 +99,7 @@ class HomeFragment : Fragment() {
         }else{
             val bundle=Bundle()
             bundle.putParcelable("suggest",it)
+            bundle.putParcelable("location",currentlocation)
             activity?.navigateActivity(HomeWakilneActivity::class.java,bundle)
         }
     }

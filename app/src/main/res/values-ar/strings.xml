@@ -8,4 +8,6 @@
     <string name="time_out_message">Looks like the server is taking to long to respond, this can be caused by either  poor connectivity or an error with our servers. Please try again in a while</string>
     <string name="about_us">عن التطبيق</string>
     <string name="searchsettings">اعدادات البحث</string>
+    <string name="suggestanother">  اقتراح اخر</string>
+    <string name="open_in_google">فتح في Google Maps</string>
 </resources>

@@ -1,8 +1,11 @@
 package com.example.weanaklie.presentation.main.home
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.location.Location
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,12 +23,14 @@ import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_detail.*
 import java.util.*
 
 
 class DetailFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     var location = LatLng(24.085110, 32.901220)
+    var userlocation: Location? = null
 
     private val args: DetailFragmentArgs by navArgs()
     var suggest = SuggestResponse()
@@ -77,18 +82,20 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      //  (activity?.supportFragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?)?.getMapAsync(this)
+        //  (activity?.supportFragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?)?.getMapAsync(this)
 
-       /* val supportMapFragment =
-            childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        supportMapFragment!!.getMapAsync(this)*/
+        /* val supportMapFragment =
+             childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+         supportMapFragment!!.getMapAsync(this)*/
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setlistnerViews()
         (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)?.getMapAsync(this)
 
         suggest = args.suggestDetail ?: SuggestResponse()
+        userlocation = args.location
         if (suggest.lat.isEmpty()) return
         location = LatLng(
             suggest.lat.toDouble(),
@@ -96,6 +103,18 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
         )
         view.apply {
 
+        }
+    }
+
+    private fun setlistnerViews() {
+
+        openBtn.setOnClickListener {
+            if (userlocation != null && suggest != null) {
+                val uri =
+                    "http://maps.google.com/maps?saddr=" + userlocation?.latitude.toString() + "," + userlocation?.longitude.toString() + "&daddr=" + suggest.lat.toString() + "," + suggest.lon
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                startActivity(intent)
+            }
         }
     }
 }
