@@ -93,4 +93,9 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
+
+
+    /*Slider Details*/
+    implementation "com.github.firdausmaulan:GlideSlider:1.4.1"
+
 }

@@ -29,10 +29,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.weanaklie.R
+import com.glide.slider.library.Animations.DescriptionAnimation
+import com.glide.slider.library.Indicators.PagerIndicator
+import com.glide.slider.library.SliderLayout
+import com.glide.slider.library.SliderTypes.DefaultSliderView
 
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.util.ArrayList
 
 
 fun View.toggleVisibility(visible: Boolean) {
@@ -192,7 +197,8 @@ fun Activity.navigateActivity(activity: Class<*>) {
     startActivity(intent)
 
 }
-fun Activity.navigateActivity(activity: Class<*>,bundle: Bundle) {
+
+fun Activity.navigateActivity(activity: Class<*>, bundle: Bundle) {
     val intent = Intent(this, activity)
     intent.putExtras(bundle)
     startActivity(intent)
@@ -265,3 +271,33 @@ fun ViewGroup.deepForEach(function: View.() -> Unit) {
 
 inline fun <FRAGMENT : Fragment> FRAGMENT.putArgs(argsBuilder: Bundle.() -> Unit): FRAGMENT =
     this.apply { arguments = Bundle().apply(argsBuilder) }
+
+fun SliderLayout.setSlider(
+    photos: List<String>?,
+    activity: FragmentActivity,
+    pagerIndicator: PagerIndicator
+) {
+    val listUrl = ArrayList<String>()
+    if (photos != null)
+        for (image in photos) {
+            if (!image.isNullOrEmpty()) {
+                listUrl.add(image)
+            }
+        }
+    val requestOptions = RequestOptions()
+    requestOptions.centerCrop().placeholder(R.drawable.loading_animation)
+
+
+    for (i in listUrl.indices) {
+        val baseSliderView = DefaultSliderView(activity)
+        baseSliderView
+            .image(listUrl[i])
+            .setRequestOption(requestOptions)
+            .setProgressBarVisible(false)
+        this.addSlider(baseSliderView)
+    }
+    this.setCustomAnimation(DescriptionAnimation())
+    this.setDuration(10000)
+    this.setCustomIndicator(pagerIndicator)
+    this.startAutoCycle()
+}

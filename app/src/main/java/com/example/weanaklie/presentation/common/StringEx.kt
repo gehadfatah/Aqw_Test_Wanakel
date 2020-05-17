@@ -32,9 +32,9 @@ fun String.setTodate(): String {
     return dateFormat.format(dayAfter17)
 }
 
-fun String.getUserId(): Int {
-    if (this == "/users/0" || this.isEmpty() || this.lastIndexOf("/") == -1) return 0
-    return this.substring(this.lastIndexOf("/") + 1).toInt()
+fun String.getPlaceName(): String {
+    if (this.isEmpty() || this.indexOf("(") == -1) return ""
+    return this.substring(0, this.indexOf("(") - 2)
 }
 
 fun String.getCountryId(): Int {

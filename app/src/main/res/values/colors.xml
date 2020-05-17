@@ -6,6 +6,21 @@
     <color name="black_20">#33000000</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
     <color name="grey">#a2a2a2</color>
     <color name="white">#FFFFFF
-    </color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+
+    </color>
+    <color name="white_10">#1AFFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_25">#40FFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_35">#59000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_60">#99000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_35">#59FFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_60">#99FFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_70">#B3FFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="greyChoose">#545454</color>
+
+    <color name="white_80">#CCFFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_90">#E6FFFFFF</color>
+    <color name="black">#030303
+    </color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+
 
 </resources>

@@ -3,5 +3,10 @@
     <dimen name="xxxxx">25dp</dimen>
     <dimen name="xxxxxx">30dp</dimen>
     <dimen name="xxx">15dp</dimen>
+    <dimen name="xx">10dp</dimen>
+    <dimen name="x">5dp</dimen>
     <dimen name="xxxx">20dp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_21">21sp</dimen>
+    <dimen name="sp_25">25sp</dimen>
 </resources>

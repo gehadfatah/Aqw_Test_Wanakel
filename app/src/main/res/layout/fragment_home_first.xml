@@ -45,37 +45,69 @@
                 android:background="@drawable/logo_white"
                 android:backgroundTint="#D5F4EF" />
 
-            <RelativeLayout
-                android:id="@+id/suggestBtn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:background="@drawable/bg_border_suggest">
+                android:layout_weight="1"
 
-                <pl.droidsonroids.gif.GifImageView xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/progress_bar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:background="@drawable/loading"
-                    android:backgroundTint="@color/colorAccent"
-                    android:tint="@color/colorAccent"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
 
-                <TextView
-                    android:id="@+id/suggestTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="@font/opensans_bold"
-                    android:gravity="center"
-                    android:text="@string/suggest"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                >
+
+                <RelativeLayout
+                    android:id="@+id/filterBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="@dimen/x"
+                    android:layout_weight=".2"
+                    android:background="@drawable/bg_border_suggest">
+
+                    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/xx"
+                        android:background="@drawable/slider_50"
+                        android:backgroundTint="@color/colorAccent"
+                        android:tint="@color/colorAccent"
+                />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/suggestBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:background="@drawable/bg_border_suggest">
+
+                    <pl.droidsonroids.gif.GifImageView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/progress_bar"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/loading"
+                        android:backgroundTint="@color/colorAccent"
+                        android:tint="@color/colorAccent"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/suggestTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/proximaova_bold"
+                        android:gravity="center"
+                        android:text="@string/suggest"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"
+                         />
+                </RelativeLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
