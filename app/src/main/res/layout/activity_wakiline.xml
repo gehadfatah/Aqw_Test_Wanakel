@@ -74,7 +74,7 @@
         android:layout_gravity="left|start"
         android:fitsSystemWindows="true">
 
-        <include layout="@layout/navigation_new" />
+        <include layout="@layout/navigation_view" />
 
 
     </LinearLayout>

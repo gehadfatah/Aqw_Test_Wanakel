@@ -146,11 +146,6 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //  (activity?.supportFragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?)?.getMapAsync(this)
-
-        /* val supportMapFragment =
-             childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-         supportMapFragment!!.getMapAsync(this)*/
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -252,10 +247,12 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
     fun ShareClicked() {
         val sendIntent = Intent()
         sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.shareSubject))
         sendIntent.putExtra(Intent.EXTRA_TEXT, suggest.link)
         sendIntent.type = "text/plain"
         Intent.createChooser(sendIntent, "Share via")
         startActivity(sendIntent)
+
     }
 
     fun openWebPage(url: String?) {

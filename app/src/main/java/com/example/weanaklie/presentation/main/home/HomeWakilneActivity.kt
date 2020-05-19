@@ -9,6 +9,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.get
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -19,26 +21,21 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.weanaklie.R
 import com.example.weanaklie.model.datamodel.SuggestResponse
+import com.example.weanaklie.presentation.common.getNavFragment
 import kotlinx.android.synthetic.main.activity_wakiline.*
 import kotlinx.android.synthetic.main.navigation_view.*
 
 
 class HomeWakilneActivity : AppCompatActivity() {
-    /* private val navController: NavController by lazy {
-
-         Navigation.findNavController(this, R.id.nav_home_w)
-     }*/
-    var suggest:SuggestResponse? = SuggestResponse()
+    var suggest: SuggestResponse? = SuggestResponse()
+    lateinit var navController: NavController
     var userlocation: Location? = null
-
     private val appBarConfiguration: AppBarConfiguration by lazy {
         AppBarConfiguration(
             setOf(
-
-                R.id.detailFragment
-                ,
-                R.id.aboutFragment
-                , R.id.settingsFragment
+                R.id.detailFragment,
+                R.id.aboutFragment,
+                R.id.settingsFragment
             ),
             drawer_layout
         )
@@ -49,8 +46,6 @@ class HomeWakilneActivity : AppCompatActivity() {
         setContentView(R.layout.activity_wakiline)
         suggest = intent.getParcelableExtra("suggest") ?: SuggestResponse()
         userlocation = intent.getParcelableExtra("location")
-
-
         setupNavigation()
 
     }
@@ -59,6 +54,37 @@ class HomeWakilneActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         toolbar.title = ""
+        searchDrawerLayout.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.START)
+
+        }
+        aboutDrawerLayout.setOnClickListener {
+            //this for not navigate to about fragment twice
+            val fragment = getCurrentFragmentOrNull()
+            fragment?.let { nowFragmentit1 ->
+                try {
+                    when (nowFragmentit1) {
+                        is AboutFragment -> {
+
+                        }
+                        else ->{
+                            navController.navigate(R.id.aboutFragment)
+
+                        }
+
+                    }
+
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+
+
+
+
+        }
 
     }
 
@@ -70,13 +96,9 @@ class HomeWakilneActivity : AppCompatActivity() {
         findNavController(R.id.nav_home_w)
             .setGraph(
                 R.navigation.navigation_home_wakilnie,
-                DetailFragmentArgs(suggest,userlocation).toBundle()
+                DetailFragmentArgs(suggest, userlocation).toBundle()
             )
-        /*   val bundle = Bundle()
-           bundle.putParcelable("suggestDetail", suggest)
-           navController.setGraph(navController.graph, bundle)*/
-        val navController = findNavController(R.id.nav_home_w)
-
+        navController = findNavController(R.id.nav_home_w)
         setSupportActionBar(toolbar)
         val toggle = ActionBarDrawerToggle(
             this,
@@ -94,6 +116,30 @@ class HomeWakilneActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+
+                R.id.aboutFragment -> {
+
+
+                }
+                else -> {
+
+
+                }
+
+
+            }
+
+        }
+
+    }
+    private fun getCurrentFragmentOrNull(): Fragment? {
+        return (this as FragmentActivity).getNavFragment(R.id.nav_home_w)
+
+    }
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.nav_home_w).navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }

@@ -46,16 +46,13 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(activity!!)
-
         getLastLocation()
         observeViewModel()
         view.apply {
-
-
             suggestBtn.setOnClickListener {
                 if (currentlocation != null) {
                     suggestDetailViewModel.getRequestDetails("${currentlocation?.longitude},${currentlocation?.latitude}")
-                }else{
+                } else {
                     getLastLocation()
                 }
 
@@ -87,20 +84,13 @@ class HomeFragment : Fragment() {
         showMessage(it)
     }
     private val suggestResponseDetailsObserver: Observer<SuggestResponse> = Observer {
-        /*     if (isAdded) {
-
-                  val action =
-                      HomeFragmentDirections.actionHomeToDetailFragment()
-                  Navigation.findNavController(view!!).navigate(action)
-              }*/
-
         if (it.error != "no") {
             showMessage(RequestErrorException(it.error))
-        }else{
-            val bundle=Bundle()
-            bundle.putParcelable("suggest",it)
-            bundle.putParcelable("location",currentlocation)
-            activity?.navigateActivity(HomeWakilneActivity::class.java,bundle)
+        } else {
+            val bundle = Bundle()
+            bundle.putParcelable("suggest", it)
+            bundle.putParcelable("location", currentlocation)
+            activity?.navigateActivity(HomeWakilneActivity::class.java, bundle)
         }
     }
 
@@ -128,8 +118,6 @@ class HomeFragment : Fragment() {
                     if (location == null) {
                         requestNewLocationData()
                     } else {
-                        //  findViewById<TextView>(com.google.android.gms.location.R.id.latTextView).text = location.latitude.toString()
-                        //  findViewById<TextView>(com.google.android.gms.location.R.id.lonTextView).text = location.longitude.toString()
                         Toast.makeText(
                             activity,
                             "location ${location.latitude} ${location.longitude}",
@@ -167,8 +155,6 @@ class HomeFragment : Fragment() {
     private val mLocationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             var mLastLocation: Location = locationResult.lastLocation
-            //   findViewById<TextView>(com.google.android.gms.location.R.id.latTextView).text = mLastLocation.latitude.toString()
-            // findViewById<TextView>(com.google.android.gms.location.R.id.lonTextView).text = mLastLocation.longitude.toString()
             Toast.makeText(
                 activity,
                 "mLastLocation ${mLastLocation.latitude} ${mLastLocation.longitude}",

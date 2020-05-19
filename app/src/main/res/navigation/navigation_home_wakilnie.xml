@@ -20,6 +20,18 @@
             android:defaultValue="@null"
             app:argType="android.location.Location"
             app:nullable="true" />
+        <action android:id="@+id/fromDetailFragmentToAboutFragment"
+            app:destination="@+id/aboutFragment"
+            app:popUpTo="@+id/detailFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.weanaklie.presentation.main.home.AboutFragment"
+        tools:layout="@layout/fragment_about">
+
+
     </fragment>
 
 

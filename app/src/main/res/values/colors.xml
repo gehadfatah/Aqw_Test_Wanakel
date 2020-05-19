@@ -5,10 +5,9 @@
     <color name="colorAccent">#0b9496</color>
     <color name="black_20">#33000000</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
     <color name="grey">#a2a2a2</color>
-    <color name="white">#FFFFFF
-
-    </color>
+    <color name="white">#FFFFFF</color>
     <color name="toolbarTransparent">#00FFFFFF</color>
+    <color name="greylight">#D3D3D3</color>
 
     <color name="white_10">#1AFFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
     <color name="white_25">#40FFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->

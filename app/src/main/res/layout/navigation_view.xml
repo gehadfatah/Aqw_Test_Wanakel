@@ -4,120 +4,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
 
-    android:layoutDirection="ltr">
+    >
 
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/toolbarTransparent"
+        android:fitsSystemWindows="true"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearance="@style/DisplayGrayText11sp"
+        app:itemTextColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
+            android:alpha=".8"
             android:background="@color/colorAccent"
-            android:fitsSystemWindows="true"
-            app:itemIconTint="@color/white"
-            app:itemTextAppearance="@style/DisplayGrayText11sp"
-            app:itemTextColor="@color/white">
+
+            >
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/searchDrawerLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:gravity="start|center_vertical"
+                    android:background="@drawable/selector_drawer_navigation"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/xxxx"
+                    android:paddingVertical="@dimen/xx">
 
-                    <LinearLayout
-                        android:id="@+id/settingsFragment"
-                        android:layout_width="match_parent"
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:tint="@drawable/select_back"
+
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_settings_applications_black_24dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/selector_drawer_navigation"
-                        android:gravity="start|center_vertical"
-                        android:orientation="horizontal"
+                        android:layout_marginStart="@dimen/xxxx"
+                        android:text="@string/searchsettings"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@drawable/select_back"
 
-                        android:paddingHorizontal="@dimen/xxxx"
-                        android:paddingVertical="@dimen/xx">
-
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/ic_settings_applications_black_24dp" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/xxxx"
-                            android:text="@string/searchsettings"
-
-                            android:textColor="@color/white"
-
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height=".5dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginEnd="@dimen/xxxx"
-                        android:background="@color/grey" />
-
-                    <LinearLayout
-                        android:id="@+id/aboutFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/selector_drawer_navigation"
-                        android:gravity="start|center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="@dimen/xxxx"
-                        android:paddingVertical="@dimen/xx">
-
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/ic_info_black_24dp" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/xxxx"
-                            android:text="@string/about_us"
-
-                            android:textColor="@color/white"
-
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginEnd="@dimen/xxxx"
-                        android:background="@color/grey" />
+                        android:textSize="@dimen/sp_21" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="300dp">
+                    android:layout_height=".5dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="@dimen/xxxx"
+                    android:background="@color/white" />
 
-                </View>
+                <LinearLayout
+                    android:id="@+id/aboutDrawerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/xxxx"
+                    style="@style/SelectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackground"
+
+                    android:paddingVertical="@dimen/xx">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:tint="@drawable/select_back"
+
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_info_black_24dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/xxxx"
+                        android:text="@string/about_us"
+
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/sp_21" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="@dimen/xxxx"
+                    android:background="@color/white" />
+
             </LinearLayout>
 
-        </com.google.android.material.navigation.NavigationView>
-    </ScrollView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </View>
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

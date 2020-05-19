@@ -13,4 +13,6 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="suggestanother">Suggest another</string>
     <string name="open_in_google">Open In Google Mps</string>
+    <string name="twit">\@WainNakel</string>
+    <string name="shareSubject">Weanaklie App</string>
 </resources>

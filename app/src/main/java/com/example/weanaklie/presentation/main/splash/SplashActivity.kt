@@ -14,14 +14,10 @@ import com.example.weanaklie.presentation.main.wakilnieHome.WelcomeActivity
 
 
 class SplashActivity : AppCompatActivity() {
-    private val pref by lazy {
-        ApplicationIntegration.getApplication()
-            .getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
-    }
     var timer: Handler? = null
     private var myRunnable: Runnable? = Runnable {
         this@SplashActivity.runOnUiThread {
-      navigateActivity(WelcomeActivity::class.java)
+            navigateActivity(WelcomeActivity::class.java)
 
         }
     }
@@ -38,7 +34,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         timer = Handler()
         timer!!.postDelayed(myRunnable, 2000)
-
     }
 
     override fun onDestroy() {
