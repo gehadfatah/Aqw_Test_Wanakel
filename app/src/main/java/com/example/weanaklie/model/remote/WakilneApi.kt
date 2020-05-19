@@ -11,7 +11,7 @@ val WAKILNE_API_DEP: WakelnieApi by lazy {
 }
 
 interface WakelnieApi {
-//26.2716025,50.2017993
+//my location aswan no result found for api so you can use this 26.2716025,50.2017993
     @GET("/api/v1/GenerateFS.php?&get_param=value")
     fun getSuggestDetail(@Query("uid") uid: String = "26.2716025,50.2017993"): Single<SuggestResponse>
 

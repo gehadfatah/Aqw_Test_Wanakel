@@ -14,7 +14,10 @@ class WakilneRepositoryImp(
     WakilneRepository {
 
     override fun getSuggestDetail(
-        uid: String    ): Single<SuggestResponse> = wakelnieApi.getSuggestDetail(/*uid*/)
+        //my location aswan no result found for api so you can use this 26.2716025,50.2017993
+
+        uid: String
+    ): Single<SuggestResponse> = wakelnieApi.getSuggestDetail(uid/*uid*/)
 
 
 }
