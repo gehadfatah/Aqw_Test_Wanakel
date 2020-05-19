@@ -297,7 +297,7 @@ fun SliderLayout.setSlider(
         this.addSlider(baseSliderView)
     }
     this.setCustomAnimation(DescriptionAnimation())
-    this.setDuration(10000)
+    this.setDuration(1500)
     this.setCustomIndicator(pagerIndicator)
     this.startAutoCycle()
 }

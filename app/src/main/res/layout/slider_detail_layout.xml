@@ -15,7 +15,7 @@
         android:background="@color/black"
 
         app:indicator_visibility="visible"
-        app:pager_animation="Fade"
+        app:pager_animation="Stack"
         app:pager_animation_span="5100">
 
     </com.glide.slider.library.SliderLayout>

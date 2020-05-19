@@ -20,6 +20,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.weanaklie.R
 import com.example.weanaklie.model.datamodel.SuggestResponse
 import kotlinx.android.synthetic.main.activity_wakiline.*
+import kotlinx.android.synthetic.main.navigation_view.*
 
 
 class HomeWakilneActivity : AppCompatActivity() {

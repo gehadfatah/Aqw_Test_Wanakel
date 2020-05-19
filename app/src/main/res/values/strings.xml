@@ -11,6 +11,6 @@
     <string name="searchsettings">Search Settings</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="suggestanother">suggest another</string>
-    <string name="open_in_google">open In Google Mps</string>
+    <string name="suggestanother">Suggest another</string>
+    <string name="open_in_google">Open In Google Mps</string>
 </resources>

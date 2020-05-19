@@ -8,6 +8,8 @@
     <color name="white">#FFFFFF
 
     </color>
+    <color name="toolbarTransparent">#00FFFFFF</color>
+
     <color name="white_10">#1AFFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
     <color name="white_25">#40FFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
     <color name="black_35">#59000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->

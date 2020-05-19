@@ -88,8 +88,8 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             showMessage(RequestErrorException(it.error))
         } else {
             suggest = it
+            cheveronImgFrame.performClick()
             setSuggestDetails()
-
         }
     }
 
@@ -243,7 +243,19 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             infoLin.toggleVisibility(false)
             sliderLayout.toggleVisibility(!sliderLayout.isVisible)
         }
+        share.setOnClickListener {
+            ShareClicked()
+        }
 
+    }
+
+    fun ShareClicked() {
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_TEXT, suggest.link)
+        sendIntent.type = "text/plain"
+        Intent.createChooser(sendIntent, "Share via")
+        startActivity(sendIntent)
     }
 
     fun openWebPage(url: String?) {
